@@ -4,13 +4,13 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import winston from 'winston';
-
+import dotenv from 'dotenv';
+dotenv.config()
 // Defining port
 const port = process.env.PORT || 9000;
 
 // Defining app
 const app = express();
-
 // Defining middlewares
 app.use(morgan('combined'));
 app.use(bodyParser.json());

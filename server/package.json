@@ -12,14 +12,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^2.5.5",
+    "apicache": "^1.5.3",
     "app-root-path": "^2.1.0",
+    "axios": "^0.19.2",
     "babel-preset-latest": "^6.24.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.1",
     "morgan": "^1.9.0",
+    "nerdamer": "^1.1.4",
     "winston": "^3.0.0"
   },
   "devDependencies": {
