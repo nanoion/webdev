@@ -13,12 +13,17 @@ export default {
     }
   },
   sockets: {
-    connect: () => {
+    connect () {
       console.log('socket connected')
     },
-    onmessage: data => {
-      console.log(data)
-      this.alerts.push(data)
+    onmessage (data) {
+      console.log(this.$methods)
+      this.$methods.addAlert(data)
+    }
+  },
+  methods: {
+    addAlert (alert) {
+      this.alerts.push(alert)
     }
   }
 }
@@ -36,12 +41,18 @@ export default {
             </p>
 
             <div class="pt-4 px-3">
-              <b-toast v-for="alert in alerts" v-bind:key="alert.token" visible static no-auto-hide>
+              <b-toast
+                v-for="alert in alerts"
+                v-bind:key="alert.token"
+                visible
+                static
+                no-auto-hide
+              >
                 <div slot="toast-title">
                   <strong class="mr-auto">Reply Timeout</strong>
                   <small>11 min ago</small>
                 </div>
-                {{alert.msg}}
+                {{ alert.msg }}
               </b-toast>
             </div>
           </div>

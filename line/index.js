@@ -43,7 +43,7 @@ app.post("/callback", line.middleware(config), (req, res) => {
 
 app.ws("/socket", (ws, req) => {
   eventEmitter.on("timeout", (msg) => {
-    ws.send(msg);
+    ws.send(JSON.stringify(msg));
   });
   console.log("socket", req.testing);
 });
