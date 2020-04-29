@@ -24,6 +24,10 @@ app.use(express.static(__dirname + '/views/'));
 // Defining the Routes
 app.use('/api', require('./routes/index'));
 
+// Default route whole path to index.html of Vue
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html');
+});
 // Listening to port
 app.listen(port);
 console.log(`Listening On http://localhost:${port}/api`);

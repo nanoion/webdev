@@ -2,9 +2,14 @@ import nerdamer from "nerdamer/all";
 import { Client, Status } from "@googlemaps/google-maps-services-js";
 import axios from 'axios';
 
+/**
+ *  Create a new function for finding X, Y, Z value
+ */
 exports.findXYZ = (input) => {
   let ans = [];
   let question = [];
+
+  // Extract question series and answer variables
   input.forEach((value, index) => {
     let seq = parseInt(value);
     if (isNaN(seq)) {
@@ -19,7 +24,10 @@ exports.findXYZ = (input) => {
       });
     }
   });
-  let gap = 0;
+
+  let gap = 0; // Store gap value each order
+
+  // Find the gap between order
   for (let step = 0; step < question.length - 1; step++) {
     let curGap =
       (question[step + 1].value - question[step].value) / question[step].id;
@@ -30,6 +38,8 @@ exports.findXYZ = (input) => {
       };
     else gap = curGap;
   }
+
+  // Set output to the variables
   let y = question[0].value - gap * ans[1].id;
   let x = y - gap * ans[0].id;
   let z =
@@ -43,23 +53,37 @@ exports.findXYZ = (input) => {
   };
 };
 
+/**
+ * Create a new function for finding B and C value
+ */
 exports.findBC = (input) => {
   let equations = [];
+
+  // Format input value 
   input.map((equation) => {
     equation = equation.trim();
     equation = equation.replace('"', "");
     equations.push(equation);
   });
   let variables = "";
+
+  // Use nerdamer library to solve problem
   nerdamer
     .solveEquations(equations)
-    .map((value) => (variables += value[0] + "=" + value[1] + "  "));
+    .map((value) => (variables += value[0] 
+      + "=" + value[1] + "  "));
   return variables;
 };
 
+/**
+ * Find the best way to go to Central World from SCG  Bangsue
+ */
 exports.navMap = (origin, dest) => {
+
+  // Create Google Map API client
   const client = new Client({});
 
+  // Call Directions API to find the best route
   return client
     .directions({
       params: {
@@ -69,6 +93,7 @@ exports.navMap = (origin, dest) => {
       },
     })
     .then(route => {
+      // Call Static Map API to render map with polyline of the route
       let url = "https://maps.googleapis.com/maps/api/staticmap?key="
       +process.env.GMAP_KEY
       +"&size=480x480&maptype=road&format=png"
@@ -77,6 +102,9 @@ exports.navMap = (origin, dest) => {
     });
 };
 
+/**
+ * Place AutoComplete function
+ */
 exports.autoPlace = (input) => {
   const client = new Client({});
 

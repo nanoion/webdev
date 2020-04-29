@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueNativeSock from 'vue-native-websocket'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -16,7 +15,6 @@ library.add(faCoffee, faJs, faVuejs)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
-Vue.use(VueNativeSock, 'wss://webdev-274905.df.r.appspot.com/socket')
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

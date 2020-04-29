@@ -10,6 +10,7 @@ const doscgRoutes = [
         return c('router-view')
       }
     },
+    // Lazy load pages by path
     children: [
       {
         path: '',
@@ -30,11 +31,6 @@ const doscgRoutes = [
         path: 'map',
         name: 'Map',
         component: () => import('./views/pages/map')
-      },
-      {
-        path: 'line',
-        name: 'LINE',
-        component: () => import('./views/pages/line')
       }
     ]
   }

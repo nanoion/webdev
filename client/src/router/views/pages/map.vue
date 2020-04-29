@@ -3,13 +3,9 @@ import Layout from '../../layouts/main'
 import PageHeader from '../../../components/page-header'
 import axios from 'axios'
 /**
- * Starter component
+ * Find best route page
  */
 export default {
-  page: {
-    title: 'Google Map',
-    meta: [{ name: 'description' }]
-  },
   components: { Layout, PageHeader },
   sockets: {
     connect: function () {

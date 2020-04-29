@@ -1,15 +1,12 @@
 <script>
 import Layout from '../../layouts/main'
 import PageHeader from '../../../components/page-header'
-import axios from 'axios'
+import axios from 'axios' // api calling library
+
 /**
- * Starter component
+ * Find B,C Value page
  */
 export default {
-  page: {
-    title: 'Starter',
-    meta: [{ name: 'description' }]
-  },
   components: { Layout, PageHeader },
   data () {
     return {

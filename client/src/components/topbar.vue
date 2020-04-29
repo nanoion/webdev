@@ -39,11 +39,6 @@ export default {
             >Map</router-link
           ></b-nav-item
         >
-        <b-nav-item
-          ><router-link tag="a" to="/line" class="nav-link"
-            >Line</router-link
-          ></b-nav-item
-        >
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

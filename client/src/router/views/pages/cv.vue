@@ -3,12 +3,9 @@ import Layout from '../../layouts/main'
 import PageHeader from '../../../components/page-header'
 import pdf from 'vue-pdf'
 /**
- * Starter component
+ * CV page
  */
 export default {
-  page: {
-    title: 'Curriculum Vitae'
-  },
   data () {
     return {
       title: 'Curriculum Vitae'

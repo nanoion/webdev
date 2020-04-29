@@ -3,13 +3,9 @@ import Layout from '../../layouts/main'
 import PageHeader from '../../../components/page-header'
 import axios from 'axios'
 /**
- * Starter component
+ * Find X,Y,Z value page
  */
 export default {
-  page: {
-    title: 'Starter',
-    meta: [{ name: 'description' }]
-  },
   components: { Layout, PageHeader },
   data () {
     return {

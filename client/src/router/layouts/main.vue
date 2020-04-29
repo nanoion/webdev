@@ -12,19 +12,17 @@ export default {
 
 <template>
   <div id="wrapper">
+    <!-- Top Bar -->
     <Topbar />
-
-    <!-- ============================================================== -->
-    <!-- Start Page Content here -->
-    <!-- ============================================================== -->
 
     <div class="content-page">
       <div class="content">
-        <!-- Start Content-->
         <div class="container-fluid">
+          <!-- Body -->
           <slot />
         </div>
       </div>
+      <!-- Footer -->
       <Footer />
     </div>
   </div>
